@@ -19,7 +19,7 @@ public class Trabajo implements Serializable{
 
     public Trabajo(){
         Random r =new Random();
-        this.monedaPago=1+r.nextInt(4);
+        this.monedaPago=1+r.nextInt(5);
         this.requiereIngles=r.nextInt()%2==0;
         Integer dias = (7+r.nextInt(35));
         long ts =(long) (System.currentTimeMillis()+dias*1000*60*60*24);
@@ -27,6 +27,7 @@ public class Trabajo implements Serializable{
         this.precioMaximoHora=r.nextDouble()*(10+r.nextInt(100));
         this.horasPresupuestadas = dias/ 4+r.nextInt(6);
         this.categoria= Categoria.CATEGORIAS_MOCK[r.nextInt(5)];
+        this.descripcion = "";
     }
 
     public Trabajo(Integer id,String desc){

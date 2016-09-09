@@ -7,30 +7,36 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New Text"
-        android:id="@+id/textView2" />
+        android:id="@+id/textViewCategoria" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New Text"
-        android:id="@+id/textView3" />
+        android:id="@+id/textViewDescripcion" />
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:weightSum="1">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
-            android:id="@+id/textView4" />
+            android:text="New Text"
+            android:id="@+id/textViewHorasPresupuestadas" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:id="@+id/textViewPrecioMax" />
 
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageView" />
+            android:layout_height="match_parent"
+            android:id="@+id/imageViewTipoMoneda" />
 
     </LinearLayout>
 
@@ -43,14 +49,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="New Text"
-            android:id="@+id/textView5" />
+            android:id="@+id/textViewFechaEntrega" />
 
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="En Inglés"
-            android:id="@+id/checkBox"
+            android:id="@+id/checkBoxRequiereIngles"
             android:checked="false" />
+
     </LinearLayout>
 
 </LinearLayout>

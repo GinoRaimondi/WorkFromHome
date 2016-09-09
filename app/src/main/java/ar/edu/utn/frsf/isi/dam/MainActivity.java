@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 
@@ -21,9 +22,9 @@ public class MainActivity extends AppCompatActivity {
         Trabajo[] trabajos = new Trabajo[]{
           new Trabajo(1,"Trabajo 1"),new Trabajo(2,"Trabajo 2"),new Trabajo(3,"Trabajo 3")
         };
-
-        CustomAdapter adapter = new CustomAdapter(listview, Arrays.asList(trabajos),getResources()));
-
+        trabajos = Trabajo.TRABAJOS_MOCK;
+        CustomAdapter adapter = new CustomAdapter(this,  Arrays.asList(trabajos), getResources());
+        listview.setAdapter(adapter);
 
     }
 }
