@@ -12,11 +12,13 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     ListView listview;
     private static Context context;
+    Trabajo[] trabajos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,9 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
         listview = (ListView) findViewById(R.id.listView);
 
-        Trabajo[] trabajos = new Trabajo[]{
-          new Trabajo(1,"Trabajo 1"),new Trabajo(2,"Trabajo 2"),new Trabajo(3,"Trabajo 3")
-        };
+
         trabajos = Trabajo.TRABAJOS_MOCK;
         CustomAdapter adapter = new CustomAdapter(this,  Arrays.asList(trabajos), getResources());
         listview.setAdapter(adapter);
@@ -60,8 +60,33 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(this,nuevaOferta.class);
 
                 startActivityForResult(intent,0);
+
         }
 
         return true;
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // Check which request we're responding to
+            if (resultCode == RESULT_OK) {
+                // The user picked a contact.
+                // The Intent's data Uri identifies which contact was selected.
+
+                Trabajo trabajo_r = (Trabajo) data.getSerializableExtra("resultado");
+                /*Toast.makeText(this, trabajo.getDescripcion(),
+                        Toast.LENGTH_LONG).show();*/
+
+                List listaTrabajos = Arrays.asList(trabajos);
+                listaTrabajos.add(trabajo_r);
+
+
+                CustomAdapter adapter = new CustomAdapter(this, listaTrabajos, getResources());
+                listview.setAdapter(adapter);
+
+
+                // Do something with the contact here (bigger example below)
+            }
+        }
+
 }
