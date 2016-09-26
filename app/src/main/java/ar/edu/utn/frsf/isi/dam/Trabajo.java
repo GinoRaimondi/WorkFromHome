@@ -103,6 +103,10 @@ public class Trabajo implements Serializable{
         return requiereIngles;
     }
 
+    public String toString(){
+        return this.getDescripcion();
+    }
+
     public void setRequiereIngles(Boolean requiereIngles) {
         this.requiereIngles = requiereIngles;
     }

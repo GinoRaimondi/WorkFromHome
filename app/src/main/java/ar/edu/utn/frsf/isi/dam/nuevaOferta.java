@@ -31,7 +31,11 @@ public class nuevaOferta extends Activity {
             @Override
             public void onClick(View v) {
 
-                Trabajo trabajo = new Trabajo(100,descripcion.getText().toString());
+                Trabajo trabajo = new Trabajo();
+
+                trabajo.setId(100);
+
+                trabajo.setDescripcion(descripcion.getText().toString());
 
                 Intent i = getIntent();
 

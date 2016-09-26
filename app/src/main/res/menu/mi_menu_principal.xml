@@ -11,15 +11,22 @@
 
 
     <item
-    android:id="@+id/menu2"
-    android:orderInCategory="100"
-    android:title="El Menu 2"
-    app:showAsAction="never" />
+        android:id="@+id/menu2"
+        android:orderInCategory="100"
+        android:title="Ver mis ofertas"
+        app:showAsAction="never" />
 
     <item
         android:id="@+id/menu3"
-        android:orderInCategory="99"
-        android:title="El Menu 3"
+        android:orderInCategory="101"
+        android:title="Configuración"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu3"
+        android:orderInCategory="101"
+        android:title="Salir"
+        app:showAsAction="never" />
+
 
 </menu>
