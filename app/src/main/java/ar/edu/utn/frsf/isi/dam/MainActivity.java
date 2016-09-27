@@ -21,7 +21,6 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.zip.Inflater;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -71,23 +70,60 @@ public class MainActivity extends AppCompatActivity {
                         Toast.LENGTH_LONG).show();
             }*/
 
+        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+
         switch (item.getItemId()) {
             case R.id.idMenu1:
 
-                Intent intent = new Intent(this, nuevaOferta.class);
+                Intent intent = new Intent(this, NuevaOferta.class);
 
                 startActivityForResult(intent, 0);
 
-            /*case R.id.menu3:
+                return true;
+            case R.id.menu3:
 
                 android.os.Process.killProcess(android.os.Process.myPid());
 
-                System.exit(1);*/
+                System.exit(1);
+                return true;
 
         }
 
         return true;
     }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+
+        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+
+        switch (item.getItemId()) {
+
+
+            case R.id.compartir:
+
+                /*Toast.makeText(this, "Compartiendo",
+                        Toast.LENGTH_LONG).show();*/
+
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, "Novedades sobre el trabajo '" + listview.getAdapter().getItem(info.position).toString() + "'. Enviado desde WorkFromHome");
+                sendIntent.setType("text/plain");
+                startActivity(sendIntent);
+                return true;
+
+            case R.id.postularse:
+
+                Toast.makeText(this, "Usted se ha postulado a la oferta de trabajo " + listview.getAdapter().getItem(info.position).toString(),
+                        Toast.LENGTH_LONG).show();
+
+
+        }
+
+        return true;
+    }
+
+
 
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
 
@@ -132,10 +168,8 @@ public class MainActivity extends AppCompatActivity {
 
             listaTrabajos.add(trabajo_r);
 
-
             CustomAdapter adapter = new CustomAdapter(this, listaTrabajos, getResources());
             listview.setAdapter(adapter);
-
 
             // Do something with the contact here (bigger example below)
         }
