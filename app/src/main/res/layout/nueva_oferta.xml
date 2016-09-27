@@ -15,7 +15,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Ingrese oferta"
-        android:id="@+id/textView" />
+        android:id="@+id/textView"
+        android:enabled="false"
+        android:textSize="19dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -29,6 +31,60 @@
         android:layout_height="wrap_content"
         android:id="@+id/spinner_categoria"
         android:spinnerMode="dropdown" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Moneda de pago"
+        android:id="@+id/textView4"
+        android:layout_marginTop="10dp" />
+
+    <RadioGroup
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/idioma_group">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:id="@+id/rbAR"
+            android:checked="false"
+            android:drawableLeft="@drawable/ar" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:id="@+id/rbBR"
+            android:checked="false"
+            android:drawableLeft="@drawable/br"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:id="@+id/rbEU"
+            android:checked="false"
+            android:drawableLeft="@drawable/eu"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:id="@+id/rbUK"
+            android:checked="false"
+            android:drawableLeft="@drawable/uk"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:id="@+id/rbUS"
+            android:checked="false"
+            android:drawableLeft="@drawable/us" />
+    </RadioGroup>
 
     <TextView
         android:layout_width="wrap_content"

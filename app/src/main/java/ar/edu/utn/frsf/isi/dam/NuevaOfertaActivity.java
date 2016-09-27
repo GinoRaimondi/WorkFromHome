@@ -10,6 +10,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 
 import java.util.ArrayList;
@@ -25,6 +27,8 @@ public class NuevaOfertaActivity extends AppCompatActivity {
     EditText descripcion;
     Button btn_guardar;
     Spinner spinner_categoria;
+    RadioGroup idioma_group;
+    RadioButton radioButtonAR;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +37,10 @@ public class NuevaOfertaActivity extends AppCompatActivity {
 
         descripcion = (EditText) findViewById(R.id.descripcionOferta);
         btn_guardar = (Button) findViewById(R.id.guardar);
+        idioma_group = (RadioGroup) findViewById(R.id.idioma_group);
+        radioButtonAR = (RadioButton) findViewById(R.id.rbAR);
+
+        //radioButtonAR.setButtonDrawable(R.drawable.ar);
 
         Trabajo trabajo = new Trabajo();
 
@@ -53,7 +61,58 @@ public class NuevaOfertaActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                // Obtenemos el idioma seleccionado
+
+                /*int radioButtonID = idioma_group.getCheckedRadioButtonId();
+                View radioButton = idioma_group.findViewById(radioButtonID);
+                int idx = idioma_group.indexOfChild(radioButton);
+
+                RadioButton r = (RadioButton)  radioButton.getChildAt(idx);
+                String selectedtext = r.getText().toString();*/
+
+
+
                 Trabajo trabajo = new Trabajo();
+
+                int checkedRadioButtonId = idioma_group.getCheckedRadioButtonId();
+                if (checkedRadioButtonId == -1) {
+                    // No item selected
+                }
+                else{
+                    switch (checkedRadioButtonId) {
+                        case R.id.rbAR:
+
+                            trabajo.setMonedaPago(3);
+
+                           break;
+
+                        case R.id.rbBR:
+
+                            trabajo.setMonedaPago(5);
+
+                            break;
+
+                        case R.id.rbEU:
+
+                            trabajo.setMonedaPago(2);
+
+                            break;
+
+                        case R.id.rbUK:
+
+                            trabajo.setMonedaPago(4);
+
+                            break;
+
+                        case R.id.rbUS:
+
+                            trabajo.setMonedaPago(1);
+
+                            break;
+
+                    }
+
+                }
 
                 trabajo.setId(100);
 
