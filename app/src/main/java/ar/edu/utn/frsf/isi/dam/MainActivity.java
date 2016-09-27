@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.idMenu1:
 
-                Intent intent = new Intent(this, NuevaOferta.class);
+                Intent intent = new Intent(this, NuevaOfertaActivity.class);
 
                 startActivityForResult(intent, 0);
 
