@@ -26,7 +26,10 @@ public class MainActivity extends AppCompatActivity {
 
     ListView listview;
     private static Context context;
-    Trabajo[] trabajos;
+    Trabajo[] trabajos = Trabajo.TRABAJOS_MOCK;
+    List<Trabajo> arrayTrabajos = Arrays.asList(trabajos);
+    ArrayList listaTrabajos = new ArrayList<>(arrayTrabajos);
+
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -42,8 +45,8 @@ public class MainActivity extends AppCompatActivity {
 
         listview = (ListView) findViewById(R.id.listView);
 
-        trabajos = Trabajo.TRABAJOS_MOCK;
-        CustomAdapter adapter = new CustomAdapter(this, Arrays.asList(trabajos), getResources());
+        //trabajos = Trabajo.TRABAJOS_MOCK;
+        CustomAdapter adapter = new CustomAdapter(this, listaTrabajos, getResources());
         listview.setAdapter(adapter);
 
         registerForContextMenu(listview);
@@ -161,8 +164,8 @@ public class MainActivity extends AppCompatActivity {
                 /*Toast.makeText(this, trabajo.getDescripcion(),
                         Toast.LENGTH_LONG).show();*/
 
-            List<Trabajo> listaTrabajos = Arrays.asList(trabajos);
-            listaTrabajos = new ArrayList<>(listaTrabajos);
+            /*List<Trabajo> listaTrabajos = Arrays.asList(trabajos);
+            listaTrabajos = new ArrayList<>(listaTrabajos);*/
 
             System.out.println("arr: " + trabajo_r.toString());
 

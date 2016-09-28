@@ -70,9 +70,50 @@ public class NuevaOfertaActivity extends AppCompatActivity {
                 RadioButton r = (RadioButton)  radioButton.getChildAt(idx);
                 String selectedtext = r.getText().toString();*/
 
-
-
                 Trabajo trabajo = new Trabajo();
+
+                int positionSpinner = spinner_categoria.getSelectedItemPosition();
+
+                System.out.println("POSITION SPINNER : " + positionSpinner);
+
+                switch (positionSpinner) {
+                    case 0:
+
+                        trabajo.getCategoria().setId(1);
+                        trabajo.getCategoria().setDescripcion("Arquitecto");
+
+                        break;
+
+                    case 1:
+
+                        trabajo.getCategoria().setId(2);
+                        trabajo.getCategoria().setDescripcion("Desarrollador");
+
+                        break;
+
+                    case 2:
+
+                        trabajo.getCategoria().setId(3);
+                        trabajo.getCategoria().setDescripcion("Tester");
+
+                        break;
+
+                    case 3:
+
+                        trabajo.getCategoria().setId(4);
+                        trabajo.getCategoria().setDescripcion("Analista");
+
+                        break;
+
+                    case 4:
+
+                        trabajo.getCategoria().setId(5);
+                        trabajo.getCategoria().setDescripcion("Mobile Developer");
+
+                        break;
+
+                }
+
 
                 int checkedRadioButtonId = idioma_group.getCheckedRadioButtonId();
                 if (checkedRadioButtonId == -1) {
